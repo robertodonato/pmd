@@ -69,7 +69,8 @@ public class ClassNamingConventionsRule extends AbstractNamingConventionRule<AST
             case FIELD:
             case METHOD:
                 hasAny = isNonPrivate(decl) && !isMainMethod(decl);
-                if (!((AccessNode) decl.getDeclarationNode()).isStatic()) {
+                    
+                if (!((AccessNode) decl.getDeclarationNode()).isStatic() || !hasAny) {
                     return false;
                 }
                 break;
